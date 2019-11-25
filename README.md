@@ -1,3 +1,3 @@
 # Wi-Bash quadrupedal robot project named "RIPA"
 
-*You can acces all files on [GitHub](https://github.com/Iconejey/RIPA.git)
+*presentation video on [Youtube](https://www.youtube.com/watch?v=zH6hVi-mgt0)*
