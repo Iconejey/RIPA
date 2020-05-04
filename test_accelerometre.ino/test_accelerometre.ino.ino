@@ -2,19 +2,18 @@
 
 float accelX, accelY, accelZ;
 float gForceX, gForceY, gForceZ;
-unsigned long lastime = 0;
 
 void setup() {
   Serial.begin(2000000);
   Wire.begin();
+  pinMode(2, INPUT);
   setupMPU();
 }
 
 void loop() {
   recordAccelRegisters();
-  if (millis() > lastime + 100) {
+  if (Serial.available() && Serial.read() == '\t') {
     printData();
-    lastime = millis();
   }
 }
 
@@ -47,19 +46,24 @@ void recordAccelRegisters() {
 }
 
 void processAccelData() {
-  gForceX = accelX / 16384.0;
-  gForceY = accelY / 16384.0;
-  gForceZ = accelZ / 16384.0;
+  float coef = 0.01;
+  gForceX = accelX / 16384.0 * coef + gForceX * (1 - coef);
+  gForceY = accelY / 16384.0 * coef + gForceY * (1 - coef);
+  gForceZ = accelZ / 16384.0 * coef + gForceZ * (1 - coef);
 }
 
+
 void printData() {
-  float x = abs(gForceX);
-  float y = abs(gForceY);
-  float z = abs(gForceZ);
   
-  Serial.print(x);
   Serial.print(' ');
-  Serial.print(y);
+  Serial.print(gForceX);
   Serial.print(' ');
-  Serial.println(z);
+  Serial.print(gForceY);
+  Serial.print(' ');
+  if (digitalRead(2) == HIGH) {
+    Serial.print(1);
+  } else {
+    Serial.print(0);
+  }
+  Serial.print('\n');
 }
