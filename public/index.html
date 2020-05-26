@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Controler</title>
+		<link rel="manifest" href="./manifest.json" />
+		<link rel="stylesheet" href="./style.css" />
+		<link rel="shortcut icon" type="image/x-icon" href="./img/favicon.ico" />
+		<script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+	</head>
+	<body>
+		<canvas></canvas>
+		<div class="load" id="loading">
+			<img src="./img/landscape_mode.svg" />
+			<p>Hold in landscape</p>
+		</div>
+		<div class="btdiv">
+			<button onclick="fullScreen()">
+				<img class="btimg" src="./img/full-screen.svg" />
+			</button>
+		</div>
+		<script src="./src/joystick.js"></script>
+		<script src="./src/3D.js"></script>
+		<script src="./src/controler.js"></script>
+	</body>
+</html>
