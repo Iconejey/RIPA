@@ -2,7 +2,7 @@ const render = (ctx, scale, cam, models) => {
 	let render_queue = [];
 	for (let m of models) {
 		let pts = m.points.map(p => project(ctx, scale * 100, cam, p));
-
+		
 		for (let p of pts) render_queue.push(p);
 
 		for (let e of m.edges) {
