@@ -4,7 +4,7 @@
   "description": "<img src=\"loading.gif\" width=\"16\"/>RIPA est un projet de robotique initialement né dans un lycée en Mars 2018 puis officialisé à l'Université des Antilles par l'association [Wi-Bash](http://wi-bash.fr/) en début d'année scolaire 2019-2020.",
   "main": "server.js",
   "dependencies": {
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "nodemon": "^2.0.3",
     "socket.io": "^2.3.0"
   },
